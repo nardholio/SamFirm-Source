@@ -16,12 +16,12 @@
             {
                 if (form.log_textbox.InvokeRequired)
                 {
-                    form.log_textbox.Invoke(delegate {
+                    form.log_textbox.Invoke(new Action(delegate {
                         if (form.log_textbox.Lines.Length > 30)
                         {
                             form.log_textbox.Text.Remove(0, form.log_textbox.GetFirstCharIndexFromLine(1));
                         }
-                    });
+                    }));
                 }
                 else if (form.log_textbox.Lines.Length > 30)
                 {

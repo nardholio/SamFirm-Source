@@ -93,23 +93,23 @@
 
         private void ControlsEnabled(bool Enabled)
         {
-            this.update_button.Invoke(() => this.update_button.Enabled = Enabled);
-            this.download_button.Invoke(() => this.download_button.Enabled = Enabled);
-            this.binary_checkbox.Invoke(() => this.binary_checkbox.Enabled = Enabled);
-            this.model_textbox.Invoke(() => this.model_textbox.Enabled = Enabled);
-            this.region_textbox.Invoke(() => this.region_textbox.Enabled = Enabled);
-            this.checkbox_auto.Invoke(() => this.checkbox_auto.Enabled = Enabled);
-            this.checkbox_manual.Invoke(() => this.checkbox_manual.Enabled = Enabled);
-            this.checkbox_manual.Invoke(delegate {
+            this.update_button.Invoke(new Action(() => this.update_button.Enabled = Enabled));
+            this.download_button.Invoke(new Action(() => this.download_button.Enabled = Enabled));
+            this.binary_checkbox.Invoke(new Action(() => this.binary_checkbox.Enabled = Enabled));
+            this.model_textbox.Invoke(new Action(() => this.model_textbox.Enabled = Enabled));
+            this.region_textbox.Invoke(new Action(() => this.region_textbox.Enabled = Enabled));
+            this.checkbox_auto.Invoke(new Action(() => this.checkbox_auto.Enabled = Enabled));
+            this.checkbox_manual.Invoke(new Action(() => this.checkbox_manual.Enabled = Enabled));
+            this.checkbox_manual.Invoke(new Action(delegate {
                 if (this.checkbox_manual.Checked)
                 {
                     this.pda_textbox.Enabled = Enabled;
                     this.csc_textbox.Enabled = Enabled;
                     this.phone_textbox.Enabled = Enabled;
                 }
-            });
-            this.checkbox_autodecrypt.Invoke(() => this.checkbox_autodecrypt.Enabled = Enabled);
-            this.checkbox_crc.Invoke(() => this.checkbox_crc.Enabled = Enabled);
+            }));
+            this.checkbox_autodecrypt.Invoke(new Action(() => this.checkbox_autodecrypt.Enabled = Enabled));
+            this.checkbox_crc.Invoke(new Action(() => this.checkbox_crc.Enabled = Enabled));
         }
 
         private void decrypt_button_Click(object sender, EventArgs e)
@@ -125,7 +125,7 @@
                     Thread.Sleep(100);
                     Logger.WriteLog("\nDecrypting firmware...", false);
                     this.ControlsEnabled(false);
-                    this.decrypt_button.Invoke(() => this.decrypt_button.Enabled = false);
+                    this.decrypt_button.Invoke(new Action(() => this.decrypt_button.Enabled = false));
                     if (this.destinationfile.EndsWith(".enc2"))
                     {
                         Crypto.SetDecryptKey(this.FW.Region, this.FW.Model, this.FW.Version);
@@ -687,7 +687,7 @@
             {
                 Progress = 100;
             }
-            this.progressBar.Invoke(delegate {
+            this.progressBar.Invoke(new Action(delegate {
                 this.progressBar.Value = Progress;
                 try
                 {
@@ -696,7 +696,7 @@
                 catch (Exception)
                 {
                 }
-            });
+            }));
         }
 
         private void update_button_Click(object sender, EventArgs e)

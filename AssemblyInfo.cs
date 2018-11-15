@@ -4,7 +4,6 @@
 [assembly: System.Runtime.CompilerServices.CompilationRelaxations(8)]
 [assembly: System.Reflection.AssemblyCompany("")]
 [assembly: System.Diagnostics.Debuggable(System.Diagnostics.DebuggableAttribute.DebuggingModes.IgnoreSymbolStoreSequencePoints)]
-[assembly: System.Runtime.CompilerServices.Extension]
 [assembly: System.Reflection.AssemblyProduct("SamFirm")]
 [assembly: System.Reflection.AssemblyFileVersion("0.3.6.0")]
 [assembly: System.Reflection.AssemblyDescription("")]

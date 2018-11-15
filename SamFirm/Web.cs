@@ -76,9 +76,9 @@
                                             int dlspeed = Utility.DownloadSpeed(num, sw);
                                             if (dlspeed != -1)
                                             {
-                                                form.lbl_speed.Invoke(delegate {
+                                                form.lbl_speed.Invoke(new Action(delegate {
                                                     form.lbl_speed.Text = dlspeed + "kB/s";
-                                                });
+                                                }));
                                             }
                                         }
                                     }
@@ -114,9 +114,9 @@
                             Utility.PreventDeepSleep(Utility.PDSMode.Stop);
                             if (GUI)
                             {
-                                form.lbl_speed.Invoke(delegate {
+                                form.lbl_speed.Invoke(new Action(delegate {
                                     form.lbl_speed.Text = "0kB/s";
-                                });
+                                }));
                             }
                         }
                     }
